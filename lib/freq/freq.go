@@ -1,13 +1,11 @@
 package freq
 
 import (
-	"strings"
 	"sort"
+	"strings"
 )
 
-
-
-// CleanupWord takes word with "." "," ";" ":" "\n" and return "clean" word
+// CleanupWord takes word with "." "," ";" ":" "\n" ")" "(" and return "clean" word
 func CleanupWord(inWord string) string {
 	outWord := strings.TrimSuffix(inWord, `
 `)
@@ -18,7 +16,7 @@ func CleanupWord(inWord string) string {
 	outWord = strings.TrimSuffix(outWord, ";")
 	outWord = strings.TrimSuffix(outWord, ":")
 	outWord = strings.TrimSuffix(outWord, "..")
-    outWord = strings.ToLower(outWord)
+	outWord = strings.ToLower(outWord)
 	return outWord
 }
 
@@ -30,14 +28,13 @@ func StringToCleanSlice(text string) []string {
 	dirtyStringSlice := strings.Split(text, `
 `)
 
-    // get slice of strings (words) without " "
+	// get slice of strings (words) without " "
 	for _, dirtyString := range dirtyStringSlice {
 		dirtyWordSlice := strings.Split(dirtyString, " ")
 		for _, dirtyWord := range dirtyWordSlice {
 			cleanSlice = append(cleanSlice, CleanupWord(dirtyWord))
 		}
 	}
-	
 	return cleanSlice
 }
 
@@ -54,16 +51,15 @@ func StatMapFromSlice(words []string) map[string]int {
 			statMap[word] = wordCount
 		}
 	}
-    return statMap
+	return statMap
 }
-
 
 // Top10 returns 10 most used words in form of slice
 func Top10(statMap map[string]int) []string {
 	var top10 []string
 
 	type singleStat struct {
-		word string
+		word  string
 		count int
 	}
 	type myStat []singleStat
@@ -76,8 +72,8 @@ func Top10(statMap map[string]int) []string {
 		mySingleStat.count = val
 		myStatMap = append(myStatMap, mySingleStat)
 	}
-    // reverse sort
-	sort.Slice(myStatMap, func(i, j int)bool {return myStatMap[i].count > myStatMap[j].count})
+	// reverse sort
+	sort.Slice(myStatMap, func(i, j int) bool { return myStatMap[i].count > myStatMap[j].count })
 
 	for i, stat := range myStatMap {
 		top10 = append(top10, stat.word)

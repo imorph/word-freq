@@ -1,8 +1,8 @@
 package freq
 
 import (
-	"testing"
 	"sort"
+	"testing"
 )
 
 // EqualSlice tells whether a and b contain the same elements.
@@ -178,7 +178,7 @@ func TestSplit003(t *testing.T) {
 }
 
 func TestStatMap001(t *testing.T) {
-	words := []string{"bla", "bla", "bla"} 
+	words := []string{"bla", "bla", "bla"}
 	want := map[string]int{
 		"bla": 3,
 	}
@@ -190,7 +190,7 @@ func TestStatMap001(t *testing.T) {
 }
 
 func TestStatMap002(t *testing.T) {
-	words := []string{"bla", "bla", "bla", "asd", "qwe"} 
+	words := []string{"bla", "bla", "bla", "asd", "qwe"}
 	want := map[string]int{
 		"bla": 3,
 		"asd": 1,
@@ -204,7 +204,7 @@ func TestStatMap002(t *testing.T) {
 }
 
 func TestStatMap003(t *testing.T) {
-	words := []string{"", "", "", "", ""} 
+	words := []string{"", "", "", "", ""}
 	want := map[string]int{
 		"": 5,
 	}
@@ -216,7 +216,7 @@ func TestStatMap003(t *testing.T) {
 }
 
 func TestStatMap004(t *testing.T) {
-	words := []string{"ert", "hgf", "asf", "asd", "qwe"} 
+	words := []string{"ert", "hgf", "asf", "asd", "qwe"}
 	want := map[string]int{
 		"ert": 1,
 		"hgf": 1,
@@ -232,7 +232,7 @@ func TestStatMap004(t *testing.T) {
 }
 
 func TestStatMap005(t *testing.T) {
-	var words []string 
+	var words []string
 	want := make(map[string]int)
 
 	got := StatMapFromSlice(words)
@@ -298,15 +298,15 @@ func TestTop003(t *testing.T) {
 
 func TestTop004(t *testing.T) {
 	stats := map[string]int{
-		"1": 1,
-		"2": 2,
-		"3": 3,
-		"4": 4,
-		"5": 5,
-		"6": 6,
-		"7": 7,
-		"8": 8,
-		"9": 9,
+		"1":  1,
+		"2":  2,
+		"3":  3,
+		"4":  4,
+		"5":  5,
+		"6":  6,
+		"7":  7,
+		"8":  8,
+		"9":  9,
 		"10": 10,
 		"11": 11,
 		"12": 12,
@@ -324,15 +324,15 @@ func TestTop004(t *testing.T) {
 
 func TestTop005(t *testing.T) {
 	stats := map[string]int{
-		"1": 14,
-		"2": 13,
-		"3": 12,
-		"4": 11,
-		"5": 10,
-		"6": 9,
-		"7": 8,
-		"8": 7,
-		"9": 6,
+		"1":  14,
+		"2":  13,
+		"3":  12,
+		"4":  11,
+		"5":  10,
+		"6":  9,
+		"7":  8,
+		"8":  7,
+		"9":  6,
 		"10": 5,
 		"11": 4,
 		"12": 3,
