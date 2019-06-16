@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+	"bufio"
 	"fmt"
 	"log"
 
@@ -9,19 +11,18 @@ import (
 
 
 func main() {
+	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("\nlet's analyse!\nPress any time CTRL-C to exit")
 	fmt.Println("")
-
-	var s string
 	
 	for {
 		fmt.Print("Please enter text for analysis: ")
 
-		_, err := fmt.Scanf("%s", &s)
+		text, err := reader.ReadString('\n')
 		if err != nil {
 			log.Println(err)
 		} else {
-			fmt.Println("Entered string in slice form: ", freq.StringToCleanSlice(s))
+			fmt.Println("Entered string in slice form: ", freq.Top10(StatMapFromSlice(StringToCleanSlice(text))))
 			fmt.Println("")
 		}
 	}
