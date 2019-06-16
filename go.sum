@@ -2,3 +2,5 @@ github.com/imorph/word-freq/lib/freq v0.0.0-20190616105302-7ea3a171b48b h1:IsxfE
 github.com/imorph/word-freq/lib/freq v0.0.0-20190616105302-7ea3a171b48b/go.mod h1:g/aezCON0BlFNoP9R3F8LYi7ogRQHyqTTkt1cRjUh2I=
 github.com/imorph/word-freq/lib/freq v0.0.0-20190616143205-6530ecb3038e h1:jl48+b6ApvJnKlG54CBiJ8IDc1H3TN7a20CGku3/yl0=
 github.com/imorph/word-freq/lib/freq v0.0.0-20190616143205-6530ecb3038e/go.mod h1:g/aezCON0BlFNoP9R3F8LYi7ogRQHyqTTkt1cRjUh2I=
+github.com/imorph/word-freq/lib/freq v0.0.0-20190616150355-2ebfb634ca96 h1:8fjR8n7W2BAXLNJQIOhVRWBGc8u7bSVXJxIMFbDNCXg=
+github.com/imorph/word-freq/lib/freq v0.0.0-20190616150355-2ebfb634ca96/go.mod h1:g/aezCON0BlFNoP9R3F8LYi7ogRQHyqTTkt1cRjUh2I=
