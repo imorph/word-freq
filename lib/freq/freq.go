@@ -6,22 +6,13 @@ import (
 )
 
 
-// MapKeyByValue returns key by value (if it exists)
-func MapKeyByValue(m map[string]int, value int) (key string, ok bool) {
-	for k, v := range m {
-	  if v == value { 
-		key = k
-		ok = true
-		return key, ok
-	  }
-	}
-	return key, ok
-  }
 
 // CleanupWord takes word with "." "," ";" ":" "\n" and return "clean" word
 func CleanupWord(inWord string) string {
 	outWord := strings.TrimSuffix(inWord, `
 `)
+	outWord = strings.TrimSuffix(outWord, ")")
+	outWord = strings.TrimPrefix(outWord, "(")
 	outWord = strings.TrimSuffix(outWord, ".")
 	outWord = strings.TrimSuffix(outWord, ",")
 	outWord = strings.TrimSuffix(outWord, ";")

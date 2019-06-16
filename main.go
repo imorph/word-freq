@@ -17,12 +17,11 @@ func main() {
 	
 	for {
 		fmt.Print("Please enter text for analysis: ")
-
 		text, err := reader.ReadString('\n')
 		if err != nil {
 			log.Println(err)
 		} else {
-			fmt.Println("Entered string in slice form: ", freq.Top10(StatMapFromSlice(StringToCleanSlice(text))))
+			fmt.Println("Entered string in slice form: ", freq.Top10(freq.StatMapFromSlice(freq.StringToCleanSlice(text))))
 			fmt.Println("")
 		}
 	}
