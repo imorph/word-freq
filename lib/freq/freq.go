@@ -6,7 +6,7 @@ import (
 )
 
 // CleanupWord takes word with "." "," ";" ":" "\n" ")" "(" and return "clean" word
-func CleanupWord(inWord string) string {
+func cleanupWord(inWord string) string {
 	outWord := strings.TrimSuffix(inWord, `
 `)
 	outWord = strings.TrimSuffix(outWord, ")")
@@ -21,7 +21,7 @@ func CleanupWord(inWord string) string {
 }
 
 // StringToCleanSlice splits text to words (cleaned from any of . , : ; \n ) and retuns it as slice of words in lower case
-func StringToCleanSlice(text string) []string {
+func stringToCleanSlice(text string) []string {
 	var cleanSlice []string
 
 	// get slice of strings without \n
@@ -32,14 +32,14 @@ func StringToCleanSlice(text string) []string {
 	for _, dirtyString := range dirtyStringSlice {
 		dirtyWordSlice := strings.Split(dirtyString, " ")
 		for _, dirtyWord := range dirtyWordSlice {
-			cleanSlice = append(cleanSlice, CleanupWord(dirtyWord))
+			cleanSlice = append(cleanSlice, cleanupWord(dirtyWord))
 		}
 	}
 	return cleanSlice
 }
 
 // StatMapFromSlice iterate over slice of words and generates map with words counts
-func StatMapFromSlice(words []string) map[string]int {
+func statMapFromSlice(words []string) map[string]int {
 	statMap := make(map[string]int)
 	for _, word := range words {
 		wordCount, ok := statMap[word]
@@ -55,7 +55,8 @@ func StatMapFromSlice(words []string) map[string]int {
 }
 
 // Top10 returns 10 most used words in form of slice
-func Top10(statMap map[string]int) []string {
+func Top10(text string) []string {
+	statMap := statMapFromSlice(stringToCleanSlice(text))
 	var top10 []string
 
 	type singleStat struct {

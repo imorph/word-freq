@@ -20,7 +20,7 @@ func main() {
 		if err != nil {
 			log.Println(err)
 		} else {
-			fmt.Println("10 most used words (high to low): ", freq.Top10(freq.StatMapFromSlice(freq.StringToCleanSlice(text))))
+			fmt.Println("10 most used words (high to low): ", freq.Top10(text))
 			fmt.Println("")
 		}
 	}
