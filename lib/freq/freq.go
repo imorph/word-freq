@@ -42,36 +42,28 @@ func stringToCleanSlice(text string) []string {
 func statMapFromSlice(words []string) map[string]int {
 	statMap := make(map[string]int)
 	for _, word := range words {
-		wordCount, ok := statMap[word]
-		if ok {
-			wordCount++
-			statMap[word] = wordCount
-		} else {
-			wordCount = 1
-			statMap[word] = wordCount
-		}
+		wordCount, _ := statMap[word]
+		wordCount++
+		statMap[word] = wordCount
 	}
 	return statMap
 }
 
 // Top10 returns 10 most used words in form of slice
 func Top10(text string) []string {
-	statMap := statMapFromSlice(stringToCleanSlice(text))
+
 	var top10 []string
 
 	type singleStat struct {
 		word  string
 		count int
 	}
-	type myStat []singleStat
 
-	var mySingleStat singleStat
-	var myStatMap myStat
+	myStatMap := []singleStat{}
 
+	statMap := statMapFromSlice(stringToCleanSlice(text))
 	for key, val := range statMap {
-		mySingleStat.word = key
-		mySingleStat.count = val
-		myStatMap = append(myStatMap, mySingleStat)
+		myStatMap = append(myStatMap, singleStat{key, val})
 	}
 	// reverse sort
 	sort.Slice(myStatMap, func(i, j int) bool { return myStatMap[i].count > myStatMap[j].count })
